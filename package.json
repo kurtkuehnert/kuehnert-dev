@@ -9,7 +9,7 @@
     "preview": "astro preview --port 5173 --host 127.0.0.1"
   },
   "dependencies": {
-    "astro": "^5.12.8",
+    "astro": "^5.15.9",
     "@astrojs/tailwind": "^5.1.0",
     "tailwindcss": "^3.4.9",
     "postcss": "^8.4.41",

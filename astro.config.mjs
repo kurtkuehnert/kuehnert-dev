@@ -1,9 +1,12 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: 'https://kuehnert.dev',
-  integrations: [tailwind({ applyBaseStyles: false })],
-  output: 'static'
+  site: "https://kuehnert.dev",
+  output: "static",
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
-

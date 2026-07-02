@@ -2,6 +2,7 @@
 node_modules/
 dist/
 .astro/
+.wrangler/
 
 # OS junk
 .DS_Store
@@ -9,8 +10,9 @@ public/.DS_Store
 
 # Env and logs
 .env
+.env.local
 npm-debug.log*
+bun-debug.log*
 yarn-error.log
 pnpm-debug.log*
-
 

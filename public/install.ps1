@@ -164,7 +164,7 @@ $githubToken = Get-PassField -Item "GitHub kurtkuehnert" -Field "token"
 $env:GH_TOKEN = $githubToken
 $env:GITHUB_TOKEN = $githubToken
 
-$gitlabToken = Get-PassField -Item "GitLab nolag" -Field "token"
+$gitlabToken = Get-PassField -Item "gitlab-kurt-agent" -Field "token"
 $env:GITLAB_TOKEN = $gitlabToken
 $env:GITLAB_ACCESS_TOKEN = $gitlabToken
 

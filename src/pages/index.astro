@@ -1,22 +1,21 @@
 ---
 import { Image } from "astro:assets";
-import { Mail } from "@lucide/astro";
 import Layout from "../layouts/Layout.astro";
-import { GitHub, LinkedIn, YouTube } from "../icons";
+import { github, linkedin, mail, youtube } from "../icons";
 import earth from "../assets/earth.webp";
 
 const links = [
-  { label: "Email", href: "mailto:kurt@kuehnert.dev", icon: Mail },
-  { label: "GitHub", href: "https://github.com/kurtkuehnert", icon: GitHub },
+  { label: "Email", href: "mailto:kurt@kuehnert.dev", icon: mail },
+  { label: "GitHub", href: "https://github.com/kurtkuehnert", icon: github },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/kurtkuehnert/",
-    icon: LinkedIn,
+    icon: linkedin,
   },
   {
     label: "YouTube",
     href: "https://www.youtube.com/@kurtkuehnert",
-    icon: YouTube,
+    icon: youtube,
   },
 ];
 
@@ -133,7 +132,9 @@ const person = {
       {
         links.map((link) => (
           <a href={link.href} aria-label={link.label} title={link.label}>
-            <link.icon size={20} aria-hidden="true" />
+            <svg viewBox={link.icon.viewBox} aria-hidden="true">
+              <path d={link.icon.d} />
+            </svg>
           </a>
         ))
       }
@@ -161,9 +162,7 @@ const person = {
         <ul>
           {section.items.map((item) => (
             <li>
-              <span class:list={["date", { now: item.date === "Now" }]}>
-                {item.date}
-              </span>
+              <span class="date">{item.date}</span>
               {item.href ? (
                 <a class="title" href={item.href}>
                   {item.title}

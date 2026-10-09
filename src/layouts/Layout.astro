@@ -1,0 +1,64 @@
+---
+import "@fontsource-variable/outfit";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import "../styles/global.css";
+import { ArrowLeft } from "@lucide/astro";
+import logo from "../assets/logo.png";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: "en" | "de";
+}
+
+const { title, description, lang = "en" } = Astro.props;
+const home = Astro.url.pathname === "/";
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#f7f7f7"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0b0b"
+      media="(prefers-color-scheme: dark)"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(logo.src, Astro.site)} />
+    <slot name="head" />
+  </head>
+  <body>
+    {
+      !home && (
+        <a class="back" href="/">
+          <ArrowLeft size={16} aria-hidden="true" />
+          Kurt Kühnert
+        </a>
+      )
+    }
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <span>© {new Date().getFullYear()} Kurt Kühnert</span>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+    </footer>
+  </body>
+</html>

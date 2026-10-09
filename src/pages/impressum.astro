@@ -1,8 +1,24 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import LegalPage from "../components/LegalPage.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<BaseLayout lang="de" title="Impressum — Kurt Kühnert">
-  <LegalPage lang="de" type="imprint" />
-</BaseLayout>
+<Layout
+  title="Impressum · Kurt Kühnert"
+  description="Impressum von kuehnert.dev"
+  lang="de"
+>
+  <article class="legal">
+    <h1>Impressum</h1>
+    <p>
+      Kurt Kühnert<br />
+      Bahnhofstraße 13<br />
+      08118 Hartenstein<br />
+      Deutschland
+    </p>
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:kurt@kuehnert.dev">kurt@kuehnert.dev</a><br />
+      Telefon: <a href="tel:+491727639811">+49 172 7639811</a>
+    </p>
+  </article>
+</Layout>

@@ -7,7 +7,7 @@
   --divider: #dedede;
   --accent: #f7c807;
   --glow: rgb(90 150 255 / 0.25);
-  --display: "Outfit Variable", system-ui, sans-serif;
+  --display: "Nunito Variable", system-ui, sans-serif;
   --sans: "Geist Variable", system-ui, sans-serif;
   --mono: "Geist Mono Variable", ui-monospace, monospace;
   color-scheme: light dark;
@@ -67,8 +67,8 @@ h1 {
   align-items: center;
   gap: 1rem;
   margin: 0 0 1.5rem;
-  font: 500 2.5rem/1.1 var(--display);
-  letter-spacing: -0.02em;
+  font: 800 2.5rem/1.1 var(--display);
+  letter-spacing: -0.01em;
 }
 
 .intro {
@@ -208,7 +208,7 @@ footer span {
 
 .legal h2 {
   margin: 2.5rem 0 0.75rem;
-  font: 500 1.125rem/1.4 var(--display);
+  font: 700 1.125rem/1.4 var(--display);
   color: var(--text);
 }
 

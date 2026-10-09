@@ -4,7 +4,6 @@ import { Mail } from "@lucide/astro";
 import Layout from "../layouts/Layout.astro";
 import { GitHub, LinkedIn, YouTube } from "../icons";
 import earth from "../assets/earth.webp";
-import logo from "../assets/logo.png";
 
 const links = [
   { label: "Email", href: "mailto:kurt@kuehnert.dev", icon: Mail },
@@ -116,7 +115,7 @@ const person = {
 
   <header>
     <h1>
-      <Image src={logo} alt="" width={48} height={48} densities={[1, 2]} />
+      <img src="/kk.svg" alt="" width="48" height="48" />
       Kurt Kühnert
     </h1>
     <p class="intro">

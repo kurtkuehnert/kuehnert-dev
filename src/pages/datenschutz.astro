@@ -1,8 +1,80 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import LegalPage from "../components/LegalPage.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<BaseLayout lang="de" title="Datenschutzerklärung — Kurt Kühnert">
-  <LegalPage lang="de" type="privacy" />
-</BaseLayout>
+<Layout
+  title="Datenschutzerklärung · Kurt Kühnert"
+  description="Datenschutzerklärung von kuehnert.dev"
+  lang="de"
+>
+  <article class="legal">
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      Kurt Kühnert<br />
+      Bahnhofstraße 13<br />
+      08118 Hartenstein<br />
+      Deutschland<br />
+      E-Mail: <a href="mailto:kurt@kuehnert.dev">kurt@kuehnert.dev</a>
+    </p>
+
+    <h2>2. Hosting über Cloudflare Pages</h2>
+    <p>
+      Diese Website wird über Cloudflare Pages bereitgestellt, einen Dienst der
+      Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Beim
+      Aufruf der Website verarbeitet Cloudflare automatisch technische
+      Zugriffsdaten, insbesondere:
+    </p>
+    <ul>
+      <li>IP-Adresse</li>
+      <li>Browsertyp und -version</li>
+      <li>Betriebssystem</li>
+      <li>Zeitpunkt des Zugriffs</li>
+      <li>angefragte URL und technische Verbindungsdaten</li>
+    </ul>
+    <p>
+      Diese Daten werden zur Sicherheit, Auslieferung und technischen
+      Bereitstellung der Website verarbeitet. Weitere Informationen findest du
+      in der <a href="https://www.cloudflare.com/privacypolicy/"
+        >Datenschutzerklärung von Cloudflare</a
+      >.
+    </p>
+    <p>
+      Cloudflare verarbeitet Daten gegebenenfalls in den USA. Die Übermittlung
+      erfolgt auf Grundlage des Data Processing Addendum und der
+      EU-Standardvertragsklauseln (Art. 46 DSGVO).
+    </p>
+
+    <h2>3. Deine Rechte</h2>
+    <p>Du hast das Recht auf:</p>
+    <ul>
+      <li>Auskunft über die bei mir gespeicherten Daten (Art. 15 DSGVO)</li>
+      <li>
+        Löschung, soweit keine gesetzlichen Aufbewahrungspflichten bestehen
+        (Art. 17 DSGVO)
+      </li>
+      <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+      <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+    </ul>
+    <p>
+      Zur Ausübung deiner Rechte erreichst du mich unter den oben angegebenen
+      Kontaktdaten.
+    </p>
+
+    <h2>4. Links zu externen Websites</h2>
+    <p>
+      Diese Website verlinkt auf externe Seiten, etwa meine Profile auf GitHub,
+      LinkedIn und YouTube. Diese Seiten werden von Dritten betrieben und
+      unterliegen deren eigenen Datenschutzerklärungen. Auf die Verarbeitung
+      personenbezogener Daten dort habe ich keinen Einfluss.
+    </p>
+
+    <h2>5. Änderungen</h2>
+    <p>
+      Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden, um
+      rechtlichen Anforderungen zu entsprechen.
+    </p>
+  </article>
+</Layout>

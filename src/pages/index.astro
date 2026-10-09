@@ -1,10 +1,182 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { Mail } from "@lucide/astro";
+import Layout from "../layouts/Layout.astro";
+import { GitHub, LinkedIn, YouTube } from "../icons";
+import earth from "../assets/earth.webp";
+import logo from "../assets/logo.png";
+
+const links = [
+  { label: "Email", href: "mailto:kurt@kuehnert.dev", icon: Mail },
+  { label: "GitHub", href: "https://github.com/kurtkuehnert", icon: GitHub },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/kurtkuehnert/",
+    icon: LinkedIn,
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@kurtkuehnert",
+    icon: YouTube,
+  },
+];
+
+interface Item {
+  title: string;
+  href?: string;
+  detail: string;
+  date: string;
+}
+
+const sections: { label: string; items: Item[] }[] = [
+  {
+    label: "Work",
+    items: [
+      {
+        title: "NoLag Software",
+        href: "https://nolag.software",
+        detail: "Co-founder & CTO",
+        date: "Now",
+      },
+      {
+        title: "Argeo",
+        href: "https://argeo.no",
+        detail: "Software developer",
+        date: "2023–2025",
+      },
+      {
+        title: "Foresight Spatial Labs",
+        href: "https://website.fsl.dev",
+        detail: "Software developer",
+        date: "2023",
+      },
+    ],
+  },
+  {
+    label: "Projects",
+    items: [
+      {
+        title: "Bevy Terrain",
+        href: "https://github.com/kurtkuehnert/bevy_terrain",
+        detail:
+          "Open-source terrain renderer for Bevy that streams large real-world datasets onto a spherical Earth.",
+        date: "2022–2025",
+      },
+      {
+        title:
+          "A Novel Approach to Real-Time Rendering of Large-Scale Terrains Employing Uniform Distance-Dependent Level of Detail and Chunked Clipmaps",
+        href: "https://doi.org/10.18420/vrar2023_3387",
+        detail: "Kühnert, Uhlmann, Brunnett · VR/AR Workshop",
+        date: "2023",
+      },
+    ],
+  },
+  {
+    label: "Education",
+    items: [
+      {
+        title: "MSc Computer Science",
+        detail: "TU Chemnitz",
+        date: "2023–2025",
+      },
+      {
+        title: "BSc Computer Science",
+        detail: "TU Chemnitz",
+        date: "2019–2023",
+      },
+    ],
+  },
+];
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Kurt Kühnert",
+  url: "https://kuehnert.dev",
+  email: "kurt@kuehnert.dev",
+  jobTitle: "CTO",
+  worksFor: {
+    "@type": "Organization",
+    name: "NoLag Software",
+    url: "https://nolag.software",
+  },
+  sameAs: links.slice(1).map((link) => link.href),
+};
 ---
 
-<BaseLayout lang="en">
-  <meta http-equiv="refresh" content="0; url=/en" />
-  <p class="container py-8">
-    Redirecting to <a class="link" href="/en">/en</a>…
-  </p>
-</BaseLayout>
+<Layout
+  title="Kurt Kühnert"
+  description="Kurt Kühnert writes geospatial software in Rust and is co-founder and CTO of NoLag Software."
+>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(person)}
+  />
+
+  <header>
+    <h1>
+      <Image src={logo} alt="" width={48} height={48} densities={[1, 2]} />
+      Kurt Kühnert
+    </h1>
+    <p class="intro">
+      I write geospatial software in Rust, mostly terrain rendering and the GPU
+      code underneath it.
+    </p>
+    <p class="intro">
+      Right now I'm co-founder and CTO of <a href="https://nolag.software"
+        >NoLag Software</a
+      >, where we build a geospatial SDK in Rust, with everything from
+      coordinate transformations and raster processing to 3D terrain and point
+      clouds.
+    </p>
+    <nav class="links">
+      {
+        links.map((link) => (
+          <a href={link.href} aria-label={link.label} title={link.label}>
+            <link.icon size={20} aria-hidden="true" />
+          </a>
+        ))
+      }
+    </nav>
+  </header>
+
+  <figure>
+    <Image
+      src={earth}
+      alt="The Earth as a 3D globe, centered on Africa."
+      widths={[400, 800]}
+      sizes="25rem"
+      loading="eager"
+    />
+    <figcaption>
+      Earth in Bevy Terrain · Imagery: NASA Earth Observatory · Bathymetry:
+      GEBCO
+    </figcaption>
+  </figure>
+
+  {
+    sections.map((section) => (
+      <section>
+        <h2>{section.label}</h2>
+        <ul>
+          {section.items.map((item) => (
+            <li>
+              <span class:list={["date", { now: item.date === "Now" }]}>
+                {item.date}
+              </span>
+              {item.href ? (
+                <a class="title" href={item.href}>
+                  {item.title}
+                </a>
+              ) : (
+                <span class="title">{item.title}</span>
+              )}
+              <span class="detail">{item.detail}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Layout>

@@ -1,11 +1,10 @@
-/* Colors and fonts follow the NoLag Software palette. */
+/* Neutral greys; the KK logo brings the only colour. */
 :root {
   --canvas: #f7f7f7;
   --text: #161616;
   --muted: #555;
   --subtle: #8f8f8f;
   --divider: #dedede;
-  --accent: #f7c807;
   --glow: rgb(90 150 255 / 0.25);
   --display: "Nunito Variable", system-ui, sans-serif;
   --sans: "Geist Variable", system-ui, sans-serif;
@@ -40,24 +39,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: var(--accent);
-  color: #161616;
-}
-
 a {
   color: inherit;
-  text-decoration: underline 1px var(--divider);
+  text-decoration: none;
   text-underline-offset: 0.25em;
-  transition: text-decoration-color 150ms;
 }
 
 a:hover {
-  text-decoration-color: var(--accent);
+  text-decoration: underline 1px;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid currentColor;
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -87,6 +80,12 @@ h1 {
   display: flex;
   color: var(--muted);
   transition: color 150ms;
+}
+
+.links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 .links a:hover {
@@ -169,16 +168,6 @@ section li {
   white-space: nowrap;
 }
 
-.now::before {
-  content: "";
-  display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  margin: 0 0.5rem 0.1rem 0;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -198,7 +187,6 @@ footer span {
   align-items: center;
   gap: 0.25rem;
   margin-bottom: 3rem;
-  text-decoration: none;
   color: var(--muted);
 }
 
